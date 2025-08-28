@@ -4,17 +4,24 @@
 \alias{ds.hlme}
 \title{Remote "hlme"}
 \usage{
-ds.hlme(data, ..., async = TRUE, datasources = NULL)
+ds.hlme(data, ..., newObj = NULL, async = TRUE, datasources = NULL)
 }
 \arguments{
 \item{data, }{first argument to be sent to hlme on the remote nodes. Please check the original function documentation for details. data should be a character, enclosed in quotes.}
 
-\item{..., }{remainder of the hlme arguments.}
+\item{..., }{remainder of the hlme arguments. If specified as the option 3) in the original hlme documentation, 
+the argument B should also be sent a a character, the name of and object in the remote session,
+ possibly the saved result of a previous call of the function (newObj, see below). Otherwise it can be sent as a normal vector (c(....)).}
+
+\item{newObj, }{if specified the result of the function call will be saved in its entirety in the remote session under this name}
 
 \item{async}{same as in datashield.aggregate}
 
 \item{datasources}{same as in datashield.aggregate}
 }
+\value{
+a list, same as the original function hlme without the $call element and with the resid_m and resid_ss columns set to NA
+}
 \description{
-Executes "hlme" from the library "lcmmm" on the remote nodes
+Executes "hlme" from the library "lcmm" on the remote nodes
 }
