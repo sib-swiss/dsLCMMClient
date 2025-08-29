@@ -1,6 +1,6 @@
 test_that("ds.hlme works with one class", {
   
-  m1 <- ds.hlme(fixed = normMMSE ~ age65+I(age65^2)+CEP,random = ~ age65+I(age65^2), subject = 'ID', data = 'paquid', newObj = 'my_b')
+  m1 <<- ds.hlme(fixed = normMMSE ~ age65+I(age65^2)+CEP,random = ~ age65+I(age65^2), subject = 'ID', data = 'paquid', newObj = 'my_b')
   expect_true(all(c(is.na(m1$server1$pred$resid_ss), is.na(m1$server1$pred$resid_m))))
   
 })
@@ -8,7 +8,7 @@ test_that("ds.hlme works with one class", {
 
 test_that("ds.hlme works with more than one class", {
   
-  m2 <- ds.hlme(fixed = normMMSE ~ age65+I(age65^2)+CEP,random = ~ age65+I(age65^2), subject = 'ID', ng = 2, mixture=~age65+I(age65^2), data = 'paquid', B = 'my_b')
+  m2 <<- ds.hlme(fixed = normMMSE ~ age65+I(age65^2)+CEP,random = ~ age65+I(age65^2), subject = 'ID', ng = 2, mixture=~age65+I(age65^2), data = 'paquid', B = 'my_b')
   expect_true(all(c(is.na(m2$server1$pred$resid_ss), is.na(m2$server1$pred$resid_m))))
   
 })
@@ -29,6 +29,11 @@ test_that("ds.hlme works with more than one class with user-generated values", {
   summaryplot(a1, a2, a3, which = c("BIC", "entropy","ICL"))
 })
 
-
-
+test_that("gridsearch works", {
+  
+  m2d <- ds.gridsearch(m = quote(hlme(normMMSE ~ age65+I(age65^2)+CEP,  random =~ age65+I(age65^2), subject = 'ID', data=paquid, ng = 2, mixture=~age65+I(age65^2))), rep=3, maxiter=30, minit='my_b')
+  
+  expect_true(all(c(is.na(m2d$server1$minit$pred$resid_ss), is.na(m2d$server1$minit$pred$resid_m))))
+  
+})
 

@@ -11,7 +11,8 @@ ds.hlme(data, ..., newObj = NULL, async = TRUE, datasources = NULL)
 
 \item{..., }{remainder of the hlme arguments. If specified as the option 3) in the original hlme documentation, 
 the argument B should also be sent a a character, the name of and object in the remote session,
- possibly the saved result of a previous call of the function (newObj, see below). Otherwise it can be sent as a normal vector (c(....)).}
+ possibly the saved result of a previous call of the function (newObj, see below). Otherwise it can be sent as a normal vector (c(....)).
+It is recommended to pass all the arguments by name.}
 
 \item{newObj, }{if specified the result of the function call will be saved in its entirety in the remote session under this name}
 
