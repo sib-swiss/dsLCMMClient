@@ -1,9 +1,9 @@
 #' @title  Remote "gridsearch"
 #' @description Executes "gridsearch" from the library "lcmm" on the remote nodes
-#' @param m, first argument to be sent to gridsearch on the remote nodes, a call to the hlme function. Please check the original documetation of the function gridsearch.
-#' The call should be protected by quote(...) to protect from early, local evaluation. Ex: gridsearch(m = quote(hlme(...)), mint = 'obj', ...)
+#' @param m, first argument to be sent to gridsearch on the remote nodes, a call to the hlme function. Please check the original documentation of the function gridsearch.
+#' The call should be protected by quote(...) to avoid local evaluation. Ex: gridsearch(m = quote(hlme(...)), minit = 'obj', ...)
 #' @param minit, a character, the name of the object on the server that was created with the newObj argument of a previous call of the function ds.hlme.
-#' pPlease check the documentation of that function.
+#' Please check the documentation of that function.
 #' @param ...,  remainder of the gridsearch arguments. It is recommended to pass all the arguments by name.
 
 #' @param async same as in datashield.aggregate

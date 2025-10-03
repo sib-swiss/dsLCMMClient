@@ -10,7 +10,7 @@ ds.hlme(data, ..., newObj = NULL, async = TRUE, datasources = NULL)
 \item{data, }{first argument to be sent to hlme on the remote nodes. Please check the original function documentation for details. data should be a character, enclosed in quotes.}
 
 \item{..., }{remainder of the hlme arguments. If specified as the option 3) in the original hlme documentation, 
-the argument B should also be sent a a character, the name of and object in the remote session,
+the argument B should also be sent as a character, the name of an object in the remote session,
  possibly the saved result of a previous call of the function (newObj, see below). Otherwise it can be sent as a normal vector (c(....)).
 It is recommended to pass all the arguments by name.}
 
@@ -24,5 +24,5 @@ It is recommended to pass all the arguments by name.}
 a list, same as the original function hlme without the $call element and with the resid_m and resid_ss columns set to NA
 }
 \description{
-Executes "hlme" from the library "lcmm" on the remote nodes
+Executes "hlme" from the library "lcmm" on the remote nodes.
 }
